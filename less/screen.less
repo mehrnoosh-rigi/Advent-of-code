@@ -1,0 +1,50 @@
+@import 'utils/normalize';
+@import 'utils/reset';
+@import 'utils/media-query';
+@import 'utils/mixin';
+
+#main-container {
+  text-align: center;
+  padding: 25px 0;
+
+  h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .form-inline {
+    button {
+      margin-left: 10px;
+    }
+  }
+
+  .listing {
+    ul {
+      list-style: none;
+    }
+
+    &.todo {
+      li {
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 3px;
+        cursor: pointer;
+
+        &:hover {
+          background: #ccc;
+        }
+      }
+    }
+
+    &.done {
+      li {
+        color: #666;
+        text-decoration: line-through;
+      }
+    }
+
+    .no-items {
+      color: #ccc;
+    }
+  }
+}
