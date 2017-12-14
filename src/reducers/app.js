@@ -26,6 +26,23 @@ function app (state = initState.app, action = {}) {
                 ]
             }
         }
+        case actionTypes.REMOVE_TODO : {
+            return {
+                ...state,
+                todo: state.todo.filter(item => item.id !== action.id)
+            }
+        }
+        case actionTypes.UNDO : {
+            return {
+                ...state,
+                todo: [
+                    ...state.todo,
+                    {
+                        id: state.todo.length + 1,
+                        label: action.todo
+                    }]
+            }
+        }
 
         default : {
             return state;

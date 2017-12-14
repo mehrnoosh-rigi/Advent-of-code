@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Listing = (props) => {
-    const { items, customClass, noItemsMessage, onItemClick } = props;
+const MyButton = (title, callback, id) => {
+    if ((typeof callback ==='function')){
+        return (
+             <button onClick={() => callback(id)}>{title}</button>
+             );
+        }
+};
 
+const Listing = (props) => {
+    const { items, customClass, noItemsMessage, OnItemDone, OnItemRemove, OnItemUndo } = props;
     return (
         <div className={'row listing ' + customClass}>
             {
@@ -14,9 +21,12 @@ const Listing = (props) => {
                 items.length > 0 &&
                 <ul className="col-xs-12">
                     {items.map((item, i) => (
-                        <li key={i}
-                            onClick={() => (typeof onItemClick === 'function') ? onItemClick(item.id) : false}
-                        >{item.label}</li>
+                        <li key={i}>
+                            {MyButton ('Done', OnItemDone, item.id)}
+                            {MyButton ('Remove', OnItemRemove, item.id)}
+                            {MyButton ('Undo', OnItemUndo, item.id)}
+                            {item.label}
+                        </li>
                     ))}
                 </ul>
             }
@@ -28,7 +38,9 @@ Listing.propTypes = {
     items: PropTypes.array.isRequired,
     customClass: PropTypes.string.isRequired,
     noItemsMessage: PropTypes.string,
-    onItemClick: PropTypes.func
+    OnItemDone: PropTypes.func,
+    OnItemRemove: PropTypes.func,
+    OnItemUndo: PropTypes.func,
 };
 
 export default Listing;

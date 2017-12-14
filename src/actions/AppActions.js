@@ -13,8 +13,22 @@ function completeTodo (id) {
         id
     }
 }
+function removeTodo (id) {
+    return {
+        type: actionTypes.REMOVE_TODO,
+        id
+    }
+}
+function Undo (id) {
+    return {
+        type: actionTypes.UNDO,
+        id
+    }
+}
+// export {
+//     addTodo,
+//     completeTodo,
+//     removeTodo
+// };
 
-export {
-    addTodo,
-    completeTodo
-};
+export { addTodo, completeTodo, removeTodo, Undo }
