@@ -1,47 +1,30 @@
-var count = 0 ;
-let temp=[];
-var i= -1;
-var j=0;
+var finalcount = 0 ;
+var index1 = 0;
+
 var lineReader = require('readline').createInterface({
   input: require('fs').createReadStream('input.txt')
 })
 
 lineReader.on('line', function (line) {
-	i++;
 	calc(line);
-	i= -1;
 })
 
-function is_itterated (a, temp){
-	console.log(`computing ${a} - ${temp}`);
-	//console.log (i);
-	//var mtch = new RegExp (a);
-	//if (temp.match(mtch, 'g'))
-	//if (temp.indexOf (a) > 0)
-	if (temp.includes(a))
-		count++
-	console.log(count);
-	return count
-
-}
-
-const calc_itterate = (acc, item) =>{
-	i++
-	return {
-		itterated: is_itterated (temp, temp)
+const calc_itterate = (element, index,array) =>{
+	console.log(`computing ${element} - ${array}`);
+	index1= array.length;
+	console.log (index1);
+	if (array.includes(element)){
+		if ((array.indexOf(element)!=index))
+			index1--;
 	}
+	return (index1);
 } 
 
 function calc(line){
-	//j++;
 	temp = line.split(" ");
-	itteration = temp.reduce(
-		calc_itterate,
-		{
-			started: temp[i],
-			//compared: temp
-		}
+	const itteration = temp.filter(
+		calc_itterate
 		);
-	//count = count - j;
-	console.log(count);
+	finalcount = index1 + finalcount
+	console.log(finalcount);
 };
