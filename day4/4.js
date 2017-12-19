@@ -17,7 +17,8 @@ function is_itterated (a, temp){
 	//console.log (i);
 	//var mtch = new RegExp (a);
 	//if (temp.match(mtch, 'g'))
-	if (temp.indexOf (a) > 0)
+	//if (temp.indexOf (a) > 0)
+	if (temp.includes(a))
 		count++
 	console.log(count);
 	return count
@@ -27,12 +28,12 @@ function is_itterated (a, temp){
 const calc_itterate = (acc, item) =>{
 	i++
 	return {
-		itterated: is_itterated (temp[i], temp)
+		itterated: is_itterated (temp, temp)
 	}
 } 
 
 function calc(line){
-	j++;
+	//j++;
 	temp = line.split(" ");
 	itteration = temp.reduce(
 		calc_itterate,
@@ -41,6 +42,6 @@ function calc(line){
 			//compared: temp
 		}
 		);
-	count = count - j;
+	//count = count - j;
 	console.log(count);
 };
