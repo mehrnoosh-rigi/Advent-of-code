@@ -1,4 +1,3 @@
-var finalcount = 0 ;
 var index1 = 0;
 
 var lineReader = require('readline').createInterface({
@@ -9,31 +8,26 @@ lineReader.on('line', function (line) {
 	calc(line);
 })
 
-function is_itterate (element, index, array){
+const calc_iteration = (element, index, array) =>{
+	console.log(`computing ${element} - ${array}`);
 	if (array.includes(element)){
 		if (array.indexOf(element) != index )
-			return true;
-	}
-	else
-		return false;
+			return 
+	else{
+		if (array.indexOf(element) === ((array.length) - 1))
+			return index1++
+		else 
+			return 
+		} 
+	}	
+	
 }
 
-const calc_itteration = (element, index, array) =>{
-	console.log(`computing ${element} - ${array}`);
-	index1= array.length;
-	console.log (index1);
-	const non_itterate = is_itterate (element, index, array)
-	if (is_itterate === true)
-		return index1--;
-	else
-		return index1;
-}
 
 function calc(line){
 	temp = line.split(" ");
-	const itteration = temp.filter(
-	calc_itteration
+	const iteration = temp.filter(
+	calc_iteration
 		);
-	finalcount = index1 + finalcount
-	console.log(finalcount);
+	console.log(index1);
 };
